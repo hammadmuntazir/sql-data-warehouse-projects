@@ -1,19 +1,16 @@
 # SQL Server Data Warehouse Practice
 
-This project practices building a sales-oriented data warehouse with SQL Server. It is organized around source CSV files from ERP and CRM systems, data cleansing and integration, and SQL analytics for customers, products, and sales trends.
+This repository contains SQL Server scripts for practicing a sales-oriented data warehouse setup. The project concept uses ERP and CRM source data, with Bronze, Silver, and Gold layers as the intended architecture.
 
-## Intended workflow
+## Current repository contents
 
-1. Set up the `DataWarehouse` database and `bronze`, `silver`, and `gold` schemas.
-2. Create Bronze-layer tables for the CRM and ERP source entities.
-3. Continue with the repository's loading, transformation, and analytics scripts.
-4. Document and query the integrated data model.
+The checked-in scripts currently cover database/schema initialization and Bronze-layer table definitions/loading. Do not assume that the full Silver/Gold transformations and analytics pipeline are implemented in this repository unless those scripts are added and verified.
 
-## Repository structure
+## Available scripts
 
-- [Database initialization](./scripts/init_database.sql)
-- [Bronze table definitions](./scripts/bronze/ddl_bronze.SQL)
-- [Bronze loading procedure](./scripts/bronze/proc_load_bronze.sql)
+- [Database initialization](./scripts/init_database.sql) — creates the `DataWarehouse` database and the `bronze`, `silver`, and `gold` schemas.
+- [Bronze table definitions](./scripts/bronze/ddl_bronze.SQL) — defines raw CRM and ERP tables.
+- [Bronze loading procedure](./scripts/bronze/proc_load_bronze.sql) — Bronze-layer loading logic.
 - [Project license](./LICENSE)
 
 ## Prerequisites
@@ -25,6 +22,12 @@ This project practices building a sales-oriented data warehouse with SQL Server.
 
 **The initialization script drops and recreates the `DataWarehouse` database if it already exists.** Do not run it against a database containing data you need. Review the script first and use a disposable local development database.
 
+## Next steps for this project
+
+1. Confirm and document the expected source CSV paths.
+2. Run the database initialization and Bronze scripts against a disposable local database.
+3. Add and verify the Silver transformation and Gold/analytics scripts before describing this as a complete end-to-end warehouse.
+
 ## Scope
 
-The README describes the intended warehouse workflow. Review the available scripts and source-data requirements before running the complete pipeline; this repository should be treated as a learning project rather than a deployed warehouse.
+This is a learning project. The presence of database setup and Bronze-layer scripts is not a claim that the full warehouse pipeline has been run or deployed.
