@@ -1,41 +1,33 @@
-# Data Warehouse and Analytics Project
+# SQL Server Data Warehouse Practice
 
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+This repository contains SQL Server scripts for practicing a sales-oriented data warehouse setup. The project concept uses ERP and CRM source data, with Bronze, Silver, and Gold layers as the intended architecture.
 
----
-## 🚀 Project Requirements
+## Current repository contents
 
-### Building the Data Warehouse (Data Engineering)
+The checked-in scripts currently cover database/schema initialization and Bronze-layer table definitions/loading. Do not assume that the full Silver/Gold transformations and analytics pipeline are implemented in this repository unless those scripts are added and verified.
 
-#### Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+## Available scripts
 
-#### Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data is not required.
-- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+- [Database initialization](./scripts/init_database.sql) — creates the `DataWarehouse` database and the `bronze`, `silver`, and `gold` schemas.
+- [Bronze table definitions](./scripts/bronze/ddl_bronze.SQL) — defines raw CRM and ERP tables.
+- [Bronze loading procedure](./scripts/bronze/proc_load_bronze.sql) — Bronze-layer loading logic.
+- [Project license](./LICENSE)
 
----
+## Prerequisites
 
-### BI: Analytics & Reporting (Data Analysis)
+- SQL Server and a SQL client such as SQL Server Management Studio or Azure Data Studio
+- The project source CSV files, placed in the locations expected by the loading scripts
 
-#### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
+## Important safety note
 
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
----
-# 🛡️ License
+**The initialization script drops and recreates the `DataWarehouse` database if it already exists.** Do not run it against a database containing data you need. Review the script first and use a disposable local development database.
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+## Next steps for this project
 
-## 🌟 About Me
+1. Confirm and document the expected source CSV paths.
+2. Run the database initialization and Bronze scripts against a disposable local database.
+3. Add and verify the Silver transformation and Gold/analytics scripts before describing this as a complete end-to-end warehouse.
 
-Hi there ! i am Hammad Muntazir , a computer science student who is working on data engineering skills.
+## Scope
 
-
+This is a learning project. The presence of database setup and Bronze-layer scripts is not a claim that the full warehouse pipeline has been run or deployed.
