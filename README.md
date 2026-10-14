@@ -1,41 +1,30 @@
-# Data Warehouse and Analytics Project
+# SQL Server Data Warehouse Practice
 
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+This project practices building a sales-oriented data warehouse with SQL Server. It is organized around source CSV files from ERP and CRM systems, data cleansing and integration, and SQL analytics for customers, products, and sales trends.
 
----
-## 🚀 Project Requirements
+## Intended workflow
 
-### Building the Data Warehouse (Data Engineering)
+1. Set up the `DataWarehouse` database and `bronze`, `silver`, and `gold` schemas.
+2. Create Bronze-layer tables for the CRM and ERP source entities.
+3. Continue with the repository's loading, transformation, and analytics scripts.
+4. Document and query the integrated data model.
 
-#### Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+## Repository structure
 
-#### Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data is not required.
-- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+- [Database initialization](./scripts/init_database.sql)
+- [Bronze table definitions](./scripts/bronze/ddl_bronze.SQL)
+- [Bronze loading procedure](./scripts/bronze/proc_load_bronze.sql)
+- [Project license](./LICENSE)
 
----
+## Prerequisites
 
-### BI: Analytics & Reporting (Data Analysis)
+- SQL Server and a SQL client such as SQL Server Management Studio or Azure Data Studio
+- The project source CSV files, placed in the locations expected by the loading scripts
 
-#### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
+## Important safety note
 
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
----
-# 🛡️ License
+**The initialization script drops and recreates the `DataWarehouse` database if it already exists.** Do not run it against a database containing data you need. Review the script first and use a disposable local development database.
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+## Scope
 
-## 🌟 About Me
-
-Hi there ! i am Hammad Muntazir , a computer science student who is working on data engineering skills.
-
-
+The README describes the intended warehouse workflow. Review the available scripts and source-data requirements before running the complete pipeline; this repository should be treated as a learning project rather than a deployed warehouse.
